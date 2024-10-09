@@ -1,54 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predannack anti aircraft battery and musem</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scale Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!--navbar section-->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">Predannack <img src="images/logo_light.svg" alt="logo" width="75" ></a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+  <h1>Graph Axis Scale Calculator</h1>
+  
+  <!-- Input Form -->
+  <div class="form-container">
+    <label for="min">Minimum Value:</label>
+    <input type="number" id="min" step="any" placeholder="Enter min value">
 
-            <ul class="navbar__menu">
-                <li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
-                <li class="navbar__item"><a href="/newpage.html" class="navbar__links">page 1</a></li>
-                <li class="navbar__item"><a href="/admin.html" class="navbar__links">page 2</a></li>
-                <li class="navbar__item"><a href="/admin.html" class="navbar__links">page 3</a></li>
-                <li class="navbar__item"><a href="/admin.html" class="navbar__links">page 4</a></li>
-                <li class="navbar__item"><a href="/admin.html" class="navbar__links">page 5</a></li>
-                <li class="navbar__item"><a href="/admin.html" class="navbar__links">page 6</a></li>
-                <li class="navbar__btn"><a href="https://opencollective.com/pradannack" class="button">Donate</a></li>
-            </ul>
-        </div>
-    </nav>
+    <label for="max">Maximum Value:</label>
+    <input type="number" id="max" step="any" placeholder="Enter max value">
 
-    <div class="main">
-        <div class="main__container">
-            <div class="main__content">
-                <h1>
-                    who we are
-                </h1>
-                <p>
-                    we are a small volunteer group who have been working on site for now over three years, working hard to maintain and restore this historical site whilst shareing thier various intrsests with each other and the public
-                </p>    
-            </div>
-        </div>        
-    </div>
+    <label for="include-origin">Include Origin? (y/n):</label>
+    <input type="text" id="include-origin" maxlength="1" placeholder="y or n">
 
-    <div class="banner">
-        
-    </div>
-       
-   <script src="app.js"></script>
+    <button onclick="calculateScale()">Calculate Scale</button>
+  </div>
+
+  <!-- Results -->
+  <div id="results"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
