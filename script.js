@@ -34,23 +34,25 @@ function calculateScale(includeOrigin, numberDivisions, data) {
     let startValue = includeOrigin ? 0 : minValue;
     let endValue = maxValue;
 
-    // Calculate the initial range of data
+    // Calculate the range of the data
     let range = endValue - startValue;
 
-    // Set a minimum range to ensure data takes up at least half the axis
-    let minRange = range * 2;  // Ensure data takes up at least half the axis
-    let requiredRange = Math.max(range, minRange);  // The required range for the axis
+    // We need the data to take up at least half the axis
+    let targetRange = Math.max(range * 2, range);  // Ensure the range is doubled for half-axis constraint
 
-    // Calculate a rough step size that fits this range into the number of divisions
-    let step = requiredRange / numberDivisions;
+    // Calculate the initial step size that would divide the target range into the number of divisions
+    let step = targetRange / numberDivisions;
 
-    // Adjust step size to the nearest 1, 2, or 5 multiple without overshooting
+    // Adjust the step size to the largest possible 1, 2, 2.5, or 5 multiple without overshooting
     step = roundToNearest125(step);
 
-    // Check if the total range (step * numberDivisions) fits the data
+    // Check if the total range (step * numberDivisions) can fit the data without undershooting
     let totalRange = step * numberDivisions;
-    if (totalRange < range) {
-        step = roundToNearest125((range / numberDivisions) * 1.1);  // Avoid overshooting, slightly increase step
+
+    // If the total range is smaller than the data range, adjust the step size upwards
+    while (totalRange < range) {
+        step = roundToNearest125(step * 1.1);  // Slightly increase the step size
+        totalRange = step * numberDivisions;
     }
 
     return formatScale(step);
@@ -63,7 +65,7 @@ function roundToNearest125(value) {
     // Normalize the value to the range [1, 10)
     let normalizedValue = value / orderOfMagnitude;
 
-    // Round to the nearest 1, 2, or 5 multiple
+    // Round to the nearest 1, 2, 2.5, or 5 multiple
     if (normalizedValue <= 1) {
         normalizedValue = 1;
     } else if (normalizedValue <= 2) {
