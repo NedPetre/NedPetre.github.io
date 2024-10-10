@@ -84,9 +84,9 @@ function roundToNearest125(value) {
 
 function formatScale(scale) {
     // If the scale is smaller than 0.01 or larger than 10000, use scientific notation
-    if (scale < 0.1 || scale >= 10000) {
+    if (scale < 0.01 || scale >= 10000) {
         return scale.toExponential(2);  // 2 decimal places in scientific notation
     } else {
-        return scale.toFixed(4);  // Otherwise, show with 4 decimal places for smaller values
+        return scale.toFixed(2);  // Otherwise, show with 4 decimal places for smaller values
     }
 }
