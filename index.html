@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scale Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axis Scale Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Graph Axis Scale Calculator</h1>
-  
-  <!-- Input Form -->
-  <div class="form-container">
-    <label for="min">Minimum Value:</label>
-    <input type="number" id="min" step="any" placeholder="Enter min value">
+    <div class="container">
+        <h1>Axis Scale Calculator</h1>
+        
+        <form id="scaleForm">
+            <label for="includeOrigin">Include Origin:</label>
+            <select id="includeOrigin" name="includeOrigin">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
 
-    <label for="max">Maximum Value:</label>
-    <input type="number" id="max" step="any" placeholder="Enter max value">
+            <label for="numberDivisions">Number of Divisions:</label>
+            <input type="number" id="numberDivisions" name="numberDivisions" min="1" placeholder="Enter number of divisions" required>
 
-    <label for="include-origin">Include Origin? (y/n):</label>
-    <input type="text" id="include-origin" maxlength="1" placeholder="y or n">
+            <label for="data">Data (comma-separated):</label>
+            <input type="text" id="data" name="data" placeholder="Enter data points" required>
 
-    <button onclick="calculateScale()">Calculate Scale</button>
-  </div>
+            <button type="submit">Calculate Scale</button>
+        </form>
 
-  <!-- Results -->
-  <div id="results"></div>
+        <div id="result"></div>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
