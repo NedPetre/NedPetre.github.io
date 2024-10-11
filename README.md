@@ -1,6 +1,8 @@
 # Axis Scale Calculator
 
-This project is a simple web-based axis scale calculator that takes user input and computes the appropriate scale divisions for graphing. It mimics the behavior of a Python axis scale calculator and ensures that the data fits on the graph without overshooting, while adhering to the constraints of multiples of 1, 2, or 5.
+This project is a simple web-based axis scale calculator that takes user input and computes the appropriate scale divisions for graphing. It mimics the behavior of a Python axis scale calculator and ensures that the data fits on the graph without overshooting, while adhering to the constraints of multiples of 1, 2, or 5. 
+
+it is used calculate what scale/step to use on a graph, I made this because I became tired of figuring out what scale to use on graphs, a simple yet leborious task.
 
 ## Features
 - Input three values: 
@@ -40,6 +42,17 @@ This project is a simple web-based axis scale calculator that takes user input a
    - **Data**: Input your numerical data.
 3. Press the **Calculate Scale** button.
 4. The result will be displayed in the greyed-out area.
+
+example:
+
+```
+include origin:
+Yes
+number of divisions:
+32
+data:
+-8, -6, -3.5, -0.05, 2, 6.3, 6.4, 8.2, 12.1
+```
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
